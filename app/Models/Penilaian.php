@@ -27,7 +27,7 @@ class Penilaian extends Model
     use HasFactory;
 
     public $table = 'penilaians';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -75,6 +75,13 @@ class Penilaian extends Model
         'tanggung_jawab' => 'required|integer',
         'etika' => 'required|integer'
     ];
-
-    
+    /**
+     * Get the pkl associated with the Penilaian
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function pkl()
+    {
+        return $this->hasOne(PKL::class, 'pkl_id');
+    }
 }

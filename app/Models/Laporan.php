@@ -21,7 +21,7 @@ class Laporan extends Model
     use HasFactory;
 
     public $table = 'laporans';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -51,6 +51,13 @@ class Laporan extends Model
         'pkl_id' => 'required|integer',
         'laporan' => 'required|string'
     ];
-
-    
+    /**
+     * Get the pkl that owns the Laporan
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function pkl()
+    {
+        return $this->belongsTo(Pkl::class, 'pkl_id');
+    }
 }

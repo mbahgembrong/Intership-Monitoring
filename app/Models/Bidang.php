@@ -20,7 +20,7 @@ class Bidang extends Model
     use HasFactory;
 
     public $table = 'bidangs';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -48,6 +48,22 @@ class Bidang extends Model
     public static $rules = [
         'name' => 'required|string'
     ];
-
-    
+    /**
+     * Get all of the staf for the Bidang
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function staf()
+    {
+        return $this->hasMany(Staf::class, 'bidang_id');
+    }
+    /**
+     * Get all of the pkl for the Bidang
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function pkl()
+    {
+        return $this->hasMany(Pkl::class, 'bidang_id');
+    }
 }

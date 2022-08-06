@@ -25,7 +25,7 @@ class Pembimbing extends Model
     use HasFactory;
 
     public $table = 'pembimbings';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -67,6 +67,22 @@ class Pembimbing extends Model
         'email' => 'required|email|unique:pembimbings,email',
         'password' => 'required|alpha_num|min:8'
     ];
-
-    
+    /**
+     * Get the instansi that owns the Pembimbing
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function instansi()
+    {
+        return $this->belongsTo(Instansi::class, 'instansi_id');
+    }
+    /**
+     * Get all of the pkl for the Pembimbing
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function pkl()
+    {
+        return $this->hasMany(Pkl::class, 'pembimbing_id');
+    }
 }

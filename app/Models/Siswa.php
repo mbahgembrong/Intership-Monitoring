@@ -26,7 +26,7 @@ class Siswa extends Model
     use HasFactory;
 
     public $table = 'siswas';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -73,5 +73,13 @@ class Siswa extends Model
         'foto' => 'required|file'
     ];
 
-    
+    /**
+     * Get all of the pkl for the Siswa
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function pkl()
+    {
+        return $this->hasMany(Pkl::class, 'siswa_id');
+    }
 }

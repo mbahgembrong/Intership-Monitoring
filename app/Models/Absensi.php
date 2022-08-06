@@ -21,7 +21,7 @@ class Absensi extends Model
     use HasFactory;
 
     public $table = 'absensis';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -52,5 +52,8 @@ class Absensi extends Model
         'absensi' => 'required'
     ];
 
-    
+    public function pkl()
+    {
+        return $this->belongsTo(Pkl::class, 'pkl_id');
+    }
 }

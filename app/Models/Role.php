@@ -20,7 +20,7 @@ class Role extends Model
     use HasFactory;
 
     public $table = 'roles';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -49,5 +49,13 @@ class Role extends Model
         'name' => 'required|string'
     ];
 
-    
+    /**
+     * Get all of the staf for the Role
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function staf()
+    {
+        return $this->hasMany(Staf::class, 'role_id');
+    }
 }

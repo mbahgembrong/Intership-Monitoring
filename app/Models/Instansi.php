@@ -23,7 +23,7 @@ class Instansi extends Model
     use HasFactory;
 
     public $table = 'instansis';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -60,6 +60,22 @@ class Instansi extends Model
         'telp' => 'required|numeric|max:15|unique:instansis,phone',
         'pendidikan' => 'required|string'
     ];
-
-    
+    /**
+     * Get all of the pembimbing for the Instansi
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function pembimbing()
+    {
+        return $this->hasMany(Pembimbing::class, 'instansi_id');
+    }
+    /**
+     * Get all of the pkl for the Instansi
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function pkl()
+    {
+        return $this->hasMany(Pkl::class, 'instansi_id');
+    }
 }

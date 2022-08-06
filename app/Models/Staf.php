@@ -26,7 +26,7 @@ class Staf extends Model
     use HasFactory;
 
     public $table = 'stafs';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -70,6 +70,13 @@ class Staf extends Model
         'email' => 'required|email|unique:stafs,email',
         'password' => 'required|alpha_num|min:8'
     ];
-
-    
+    /**
+     * Get all of the pkl for the Staf
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function pkl()
+    {
+        return $this->hasMany(Pkl::class, 'staff_id');
+    }
 }

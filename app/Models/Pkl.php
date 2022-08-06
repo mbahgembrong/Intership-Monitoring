@@ -33,7 +33,7 @@ class Pkl extends Model
     use HasFactory;
 
     public $table = 'pkls';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -96,5 +96,76 @@ class Pkl extends Model
         'file' => 'required|file'
     ];
 
-    
+    /**
+     * Get the siswa that owns the Pkl
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class, 'siswa_id');
+    }
+    /**
+     * Get the staf that owns the Pkl
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function staf()
+    {
+        return $this->belongsTo(Staf::class, 'staff_id');
+    }
+    /**
+     * Get the bidang that owns the Pkl
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function bidang()
+    {
+        return $this->belongsTo(Bidang::class, 'bidang_id');
+    }
+    /**
+     * Get the pembimbing that owns the Pkl
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function pembimbing()
+    {
+        return $this->belongsTo(Pembimbing::class, 'pembimbing_id');
+    }
+    /**
+     * Get the instansi that owns the Pkl
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function instansi()
+    {
+        return $this->belongsTo(Instansi::class, 'instansi_id');
+    }
+    /**
+     * Get all of the absensi for the Pkl
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function absensi()
+    {
+        return $this->hasMany(Absensi::class, 'pkl_id');
+    }
+    /**
+     * Get all of the laporan for the Pkl
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function laporan()
+    {
+        return $this->hasMany(Laporan::class, 'pkl_id');
+    }
+    /**
+     * Get the penilaian associated with the Pkl
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function penilaian()
+    {
+        return $this->hasOne(Penilaian::class, 'pkl_id');
+    }
 }

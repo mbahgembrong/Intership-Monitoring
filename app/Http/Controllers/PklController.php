@@ -12,6 +12,10 @@ use Response;
 
 class PklController extends AppBaseController
 {
+    public function __construct()
+    {
+        $this->status = ["pendaftaran", "diterma", "ditolak", "pertimbangan", "berjalan", "selesai"];
+    }
     /**
      * Display a listing of the Pkl.
      *

@@ -12,6 +12,10 @@ use Response;
 
 class AbsensiController extends AppBaseController
 {
+    public function __construct()
+    {
+        $this->absensi = ["Alpha", "Hadir", "Izin", "Sakit"];
+    }
     /**
      * Display a listing of the Absensi.
      *

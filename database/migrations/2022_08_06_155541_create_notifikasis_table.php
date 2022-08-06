@@ -19,7 +19,7 @@ class CreateNotifikasisTable extends Migration
             $table->string('user');
             $table->unsignedInteger('foreign_id');
             $table->text('keterangan');
-            $table->boolean('read');
+            $table->boolean('read')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -12,6 +12,10 @@ use Response;
 
 class NotifikasiController extends AppBaseController
 {
+    public function __construct()
+    {
+        $this->user = ["siswa", "staf", "pembimbing"];
+    }
     /**
      * Display a listing of the Notifikasi.
      *

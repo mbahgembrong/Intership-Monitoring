@@ -23,9 +23,11 @@ class Notifikasi extends Model
     use HasFactory;
 
     public $table = 'notifikasis';
-    
+
 
     protected $dates = ['deleted_at'];
+
+    private $user_key = ["siswa", "staf", "pembimbing"];
 
 
 
@@ -59,6 +61,4 @@ class Notifikasi extends Model
         'keterangan' => 'required|string',
         'read' => 'nullable'
     ];
-
-    
 }

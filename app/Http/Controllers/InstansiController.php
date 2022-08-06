@@ -12,6 +12,10 @@ use Response;
 
 class InstansiController extends AppBaseController
 {
+    public function __construct()
+    {
+        $this->pendidikan = ["SMA", "SMK", "D1", "D2", "D3", "S1", "S2", "S3"];
+    }
     /**
      * Display a listing of the Instansi.
      *

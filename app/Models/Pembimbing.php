@@ -5,7 +5,8 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 /**
  * Class Pembimbing
  * @package App\Models
@@ -18,11 +19,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string $email
  * @property string $password
  */
-class Pembimbing extends Model
+class Pembimbing extends Authenticatable
 {
     use SoftDeletes;
 
-    use HasFactory;
+    use HasFactory, Notifiable;
 
     public $table = 'pembimbings';
 

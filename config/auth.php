@@ -40,6 +40,18 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'staf' => [
+            'driver' => 'session',
+            'provider' => 'stafs',
+        ],
+        'siswa' => [
+            'driver' => 'session',
+            'provider' => 'siswas',
+        ],
+        'pembimbing' => [
+            'driver' => 'session',
+            'provider' => 'pembimbings',
+        ],
 
         'api' => [
             'driver' => 'token',
@@ -69,6 +81,18 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'stafs' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Staf::class,
+        ],
+        'siswas' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Siswa::class,
+        ],
+        'pembimbings' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Pembimbing::class,
         ],
 
         // 'users' => [

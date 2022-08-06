@@ -5,6 +5,8 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 /**
  * Class Staf
@@ -19,11 +21,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string $email
  * @property string $password
  */
-class Staf extends Model
+class Staf extends Authenticatable
 {
     use SoftDeletes;
 
-    use HasFactory;
+    use HasFactory, Notifiable;
 
     public $table = 'stafs';
 
